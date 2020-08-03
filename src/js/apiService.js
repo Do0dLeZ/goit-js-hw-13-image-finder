@@ -5,7 +5,7 @@
 import axios from "axios";
 
 // =====================    AXIOS/REQUEST SETTINGS  ============================
-axios.defaults.baseURL = "https://pixabay.com/";
+// axios.defaults.baseURL = "https://pixabay.com/";
 
 const requestParams = {
   image_type: "photo",
@@ -20,7 +20,7 @@ const requestParams = {
 
 export default function (queryParams = {}) {
   return axios
-    .get("/api", { params: { ...requestParams, ...queryParams } })
+    .get("https://pixabay.com/api", { params: { ...requestParams, ...queryParams } })
     .then(({ data }) => data.hits);
 }
 
