@@ -56,9 +56,14 @@ const renderCards = (cards = []) => {
   refs.gallery.insertAdjacentHTML("beforeend", cardsHTMLCreator(cards));
 };
 
+const renderClearGallery = () => {
+  refs.galleryContainer.innerHTML = "";
+};
+
 // ==============       HENDLERS    =================
 
 const handleSubmit = (e) => {
+  renderClearGallery();
   e.preventDefault();
   const queryValue = e.target.elements.query.value;
   if (queryValue) {
