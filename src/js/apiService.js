@@ -5,7 +5,8 @@
 import axios from "axios";
 
 // =====================    AXIOS/REQUEST SETTINGS  ============================
-// axios.defaults.baseURL = "https://pixabay.com/";
+axios.defaults.baseURL =
+  "https://cors-anywhere.herokuapp.com/https://pixabay.com";
 
 const requestParams = {
   image_type: "photo",
@@ -20,22 +21,6 @@ const requestParams = {
 
 export default function (queryParams = {}) {
   return axios
-    .get("https://pixabay.com/api", { params: { ...requestParams, ...queryParams } })
+    .get("/api", { params: { ...requestParams, ...queryParams } })
     .then(({ data }) => data.hits);
 }
-
-// ===================== FETCH ============================
-
-// export default function (queryParams = {}) {
-//   const url = `https://pixabay.com/api?image_type=${requestParams.image_type}&orientation=${requestParams.orientation}&q=${queryParams.q}&page=${queryParams.page}&per_page=${queryParams.per_page}&key=${requestParams.key}`;
-//   return fetch(url, {
-//     method: "GET",
-//     mode: "no-cors",
-//     headers: {
-//       "Content-Type": "application/json",
-//       // 'Content-Type': 'application/x-www-form-urlencoded',
-//     },
-//   })
-//     .then((response) => response)
-//     .then(console.log);
-// }

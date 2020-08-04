@@ -37,7 +37,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgb(219, 229, 245, 0.70);
+    background-color: rgb(219, 229, 245, 0.7);
   }
 }
 
@@ -49,7 +49,11 @@ img {
 
 .btn-load-more {
   padding: 10px;
-  background-color: blue($color: #000000);
+  background-color: blue;
   display: block;
   margin: auto;
+
+  &.hide {
+    display: none;
+  }
 }

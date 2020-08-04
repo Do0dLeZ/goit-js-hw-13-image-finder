@@ -53,6 +53,9 @@ const renderOnLoad = () => {
 };
 
 const renderCards = (cards = []) => {
+  if (cards.length < 12) {
+    refs.btnLoadMore.classList.toggle("hide");
+  }
   refs.gallery.insertAdjacentHTML("beforeend", cardsHTMLCreator(cards));
 };
 
@@ -90,7 +93,7 @@ const handleLoadMore = (e) => {
 
 // ==============        EVENTS     =================
 
-const initFromEvents = () => {
+const initFormEvents = () => {
   refs.formSearch.addEventListener("submit", handleSubmit);
 };
 
@@ -109,7 +112,7 @@ const initListContainer = function () {
 const initPageOnLoad = function () {
   renderOnLoad();
   initFormParams();
-  initFromEvents();
+  initFormEvents();
 };
 
 initPageOnLoad();
